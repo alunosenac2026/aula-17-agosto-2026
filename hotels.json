@@ -1,0 +1,6 @@
+[
+  {"id":1,"name":"Hotel Central","city":"São Paulo","price":320,"rating":4.5,"image":"https://via.placeholder.com/400x200?text=Hotel+Central"},
+  {"id":2,"name":"Pousada do Sol","city":"Paraty","price":180,"rating":4.2,"image":"https://via.placeholder.com/400x200?text=Pousada+do+Sol"},
+  {"id":3,"name":"Resort Litoral","city":"Fortaleza","price":540,"rating":4.8,"image":"https://via.placeholder.com/400x200?text=Resort+Litoral"},
+  {"id":4,"name":"Acomodações Centro","city":"Rio de Janeiro","price":260,"rating":4.1,"image":"https://via.placeholder.com/400x200?text=Acomodações+Centro"}
+]

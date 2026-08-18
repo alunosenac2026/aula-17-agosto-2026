@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Planejamento de Viagem</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Planejador de Viagem</h1>
+    <p>Encontre hotéis, pontos turísticos e organize seu itinerário.</p>
+  </header>
+
+  <main class="container">
+    <section class="hotels">
+      <h2>Hotéis</h2>
+      <div class="hotel-controls">
+        <input id="hotel-search" placeholder="Pesquisar hotel ou cidade" />
+        <select id="hotel-sort">
+          <option value="recommended">Recomendados</option>
+          <option value="price-asc">Preço: menor</option>
+          <option value="price-desc">Preço: maior</option>
+        </select>
+      </div>
+      <div id="hotels-list" class="grid"></div>
+    </section>
+
+    <section class="spots">
+      <h2>Principais Pontos Turísticos</h2>
+      <div id="spots-list" class="grid"></div>
+    </section>
+
+    <aside class="itinerary">
+      <h2>Meu Itinerário</h2>
+      <ul id="itinerary-list"></ul>
+      <button id="clear-itinerary">Limpar</button>
+      <h3>Minhas Reservas</h3>
+      <ul id="reservations-list"></ul>
+    </aside>
+  </main>
+
+  <div id="reserve-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">✕</button>
+      <h3>Reservar Hotel</h3>
+      <form id="reserve-form">
+        <input type="hidden" id="hotel-id" />
+        <label>Nome completo <input id="res-name" required /></label>
+        <label>Email <input id="res-email" type="email" required /></label>
+        <label>Data de chegada <input id="res-date" type="date" required /></label>
+        <label>Noites <input id="res-nights" type="number" min="1" value="1" required /></label>
+        <button type="submit">Confirmar reserva</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <small>Feito como exemplo — sem pagamentos reais.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
