@@ -3,20 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Planejamento de Viagem</title>
+  <title>Roteiro | Planejamento de viagem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <h1>Planejador de Viagem</h1>
-    <p>Encontre hotéis, pontos turísticos e organize seu itinerário.</p>
+    <div class="topbar">
+      <a class="brand" href="#inicio"><span class="brand-mark">R</span> Roteiro</a>
+      <nav class="nav-actions" aria-label="Navegação principal">
+        <a href="#hospedagens">Hospedagens</a>
+        <a href="#atracoes">Atrações</a>
+        <span class="saved-count"><span id="saved-count">0 salvos</span> ♥</span>
+      </nav>
+    </div>
+    <div class="hero-copy" id="inicio">
+      <p class="eyebrow">Seu próximo capítulo começa aqui</p>
+      <h1>Viaje com intenção.</h1>
+      <p>Encontre lugares para ficar, descubra experiências e monte um roteiro que tenha a sua cara.</p>
+      <form class="destination-search" id="destination-form">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="destination-search" placeholder="Para onde você quer ir?" aria-label="Pesquisar destino">
+        <button type="submit">Explorar</button>
+      </form>
+    </div>
   </header>
 
   <main class="container">
-    <section class="hotels">
-      <h2>Hotéis</h2>
+    <section class="hotels" id="hospedagens">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Descanse bem</p>
+          <h2>Onde ficar</h2>
+        </div>
+        <span class="result-label" id="hotel-result-count">0 opções encontradas</span>
+      </div>
       <div class="hotel-controls">
-        <input id="hotel-search" placeholder="Pesquisar hotel ou cidade" />
+        <input id="hotel-search" placeholder="Pesquisar hotel ou cidade" aria-label="Pesquisar hotel ou cidade">
         <select id="hotel-sort">
           <option value="recommended">Recomendados</option>
           <option value="price-asc">Preço: menor</option>
@@ -26,16 +51,28 @@
       <div id="hotels-list" class="grid"></div>
     </section>
 
-    <section class="spots">
-      <h2>Principais Pontos Turísticos</h2>
+    <section class="spots" id="atracoes">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Viva o destino</p>
+          <h2>Vale conhecer</h2>
+        </div>
+      </div>
       <div id="spots-list" class="grid"></div>
     </section>
 
     <aside class="itinerary">
-      <h2>Meu Itinerário</h2>
+      <div class="itinerary-heading">
+        <div>
+          <p class="eyebrow">Seu plano</p>
+          <h2>Meu roteiro</h2>
+        </div>
+        <span class="route-badge" id="route-count">0</span>
+      </div>
+      <p class="empty-route" id="empty-route">Seu roteiro está vazio. Adicione uma atração para começar a montar seus dias.</p>
       <ul id="itinerary-list"></ul>
-      <button id="clear-itinerary">Limpar</button>
-      <h3>Minhas Reservas</h3>
+      <button class="text-button" id="clear-itinerary">Limpar roteiro</button>
+      <h3>Minhas reservas</h3>
       <ul id="reservations-list"></ul>
     </aside>
   </main>

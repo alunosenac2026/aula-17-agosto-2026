@@ -30,15 +30,20 @@ function loadHotels(){
   fetch('hotels.json').then(r=>r.json()).then(data=>{hotels=data;renderHotels(data)}).catch(()=>{hotels=[]});
 }
 
+function filteredHotels(){
+  const query = hotelSearch.value.trim().toLowerCase();
+  const filtered = hotels.filter(h=>h.name.toLowerCase().includes(query)||h.city.toLowerCase().includes(query));
+  const sort = hotelSort.value;
+  if(sort==='price-asc') filtered.sort((a,b)=>a.price-b.price);
+  if(sort==='price-desc') filtered.sort((a,b)=>b.price-a.price);
+  return filtered;
+}
+
 hotelSearch.addEventListener('input',()=>{
-  const q = hotelSearch.value.toLowerCase();
-  renderHotels(hotels.filter(h=>h.name.toLowerCase().includes(q)||h.city.toLowerCase().includes(q)));
+  renderHotels(filteredHotels());
 });
 hotelSort.addEventListener('change',()=>{
-  const v = hotelSort.value; let sorted=[...hotels];
-  if(v==='price-asc') sorted.sort((a,b)=>a.price-b.price);
-  if(v==='price-desc') sorted.sort((a,b)=>b.price-a.price);
-  renderHotels(sorted);
+  renderHotels(filteredHotels());
 });
 
 destinationForm.addEventListener('submit', e => {
@@ -108,7 +113,7 @@ function renderItinerary(){
   routeCount.textContent = itinerary.length;
   emptyRoute.hidden = itinerary.length > 0;
   savedCount.textContent = `${itinerary.length} ${itinerary.length === 1 ? 'salvo' : 'salvos'}`;
-  itinerary.forEach(i=>{ const li=document.createElement('li'); li.textContent = `${i.name} — ${i.city}`; itineraryList.appendChild(li); });
+  itinerary.forEach(i=>{ const li=document.createElement('li'); li.textContent = `${i.name} · ${i.city}`; itineraryList.appendChild(li); });
 }
 
 document.getElementById('clear-itinerary').addEventListener('click',()=>{ itinerary=[]; localStorage.removeItem('itinerary'); renderItinerary(); });
