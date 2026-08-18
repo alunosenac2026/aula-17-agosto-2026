@@ -4,6 +4,12 @@ const itineraryList = document.getElementById('itinerary-list');
 const reservationsList = document.getElementById('reservations-list');
 const hotelSearch = document.getElementById('hotel-search');
 const hotelSort = document.getElementById('hotel-sort');
+const hotelResultCount = document.getElementById('hotel-result-count');
+const destinationForm = document.getElementById('destination-form');
+const destinationSearch = document.getElementById('destination-search');
+const routeCount = document.getElementById('route-count');
+const emptyRoute = document.getElementById('empty-route');
+const savedCount = document.getElementById('saved-count');
 
 let hotels = [];
 let itinerary = JSON.parse(localStorage.getItem('itinerary')||'[]');
@@ -11,9 +17,11 @@ let reservations = JSON.parse(localStorage.getItem('reservations')||'[]');
 
 function renderHotels(list){
   hotelsList.innerHTML = '';
+  hotelResultCount.textContent = `${list.length} ${list.length === 1 ? 'opção encontrada' : 'opções encontradas'}`;
+  if (!list.length) { hotelsList.innerHTML = '<p class="empty-route">Nenhuma estadia encontrada. Tente outra cidade.</p>'; return; }
   list.forEach(h=>{
     const card = document.createElement('div');card.className='hotel-card';
-    card.innerHTML = `<img src="${h.image}" alt="${h.name}"><div class="body"><h4>${h.name}</h4><p>${h.city} • R$ ${h.price} • ⭐ ${h.rating}</p><div style="margin-top:8px"><button data-id="${h.id}" class="reserve-btn">Reservar</button></div></div>`;
+    card.innerHTML = `<img src="${h.image}" alt="${h.name}, ${h.city}"><div class="body"><h4>${h.name}</h4><p>${h.city} · <span class="price">R$ ${h.price}</span> / noite · ★ ${h.rating}</p><button data-id="${h.id}" class="reserve-btn">Reservar estadia</button></div>`;
     hotelsList.appendChild(card);
   });
 }
@@ -31,6 +39,13 @@ hotelSort.addEventListener('change',()=>{
   if(v==='price-asc') sorted.sort((a,b)=>a.price-b.price);
   if(v==='price-desc') sorted.sort((a,b)=>b.price-a.price);
   renderHotels(sorted);
+});
+
+destinationForm.addEventListener('submit', e => {
+  e.preventDefault();
+  hotelSearch.value = destinationSearch.value;
+  hotelSearch.dispatchEvent(new Event('input'));
+  document.querySelector('.hotels').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 document.addEventListener('click',e=>{
@@ -53,7 +68,7 @@ reserveForm.addEventListener('submit',e=>{
   const hotel = hotels.find(h=>h.id===id)||{};
   const booking = {id, hotel:hotel.name||'Desconhecido', name:document.getElementById('res-name').value, email:document.getElementById('res-email').value, date:document.getElementById('res-date').value, nights:document.getElementById('res-nights').value};
   reservations.push(booking); localStorage.setItem('reservations',JSON.stringify(reservations));
-  modal.classList.add('hidden'); renderReservations(); alert('Reserva confirmada! (apenas simulação)');
+  modal.classList.add('hidden'); reserveForm.reset(); renderReservations(); alert('Reserva confirmada! (apenas simulação)');
 });
 
 function renderReservations(){
@@ -66,16 +81,17 @@ function renderReservations(){
 
 // Tourist spots (sample)
 const spots = [
-  {id:1,name:'Centro Histórico',city:'Cidade',desc:'Passeio guiado pelo centro histórico.'},
-  {id:2,name:'Praia Azul',city:'Litoral',desc:'Ótima para banho e pôr do sol.'},
-  {id:3,name:'Museu Local',city:'Cidade',desc:'Exposições permanentes e temporárias.'}
+  {id:1,name:'Centro Histórico',city:'Paraty',desc:'Ruas de pedra, fachadas coloridas e histórias a cada esquina.',image:'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=700&q=85'},
+  {id:2,name:'Praia do Futuro',city:'Fortaleza',desc:'Mar aberto, brisa boa e pôr do sol sem pressa.',image:'https://images.unsplash.com/photo-150752227?auto=format&fit=crop&w=700&q=85'},
+  {id:3,name:'Museu e Arte',city:'São Paulo',desc:'Uma pausa cultural para olhar a cidade por outro ângulo.',image:'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=700&q=85'}
 ];
 
 function renderSpots(){
   spotsList.innerHTML='';
   spots.forEach(s=>{
     const div=document.createElement('div');div.className='spot-card';
-    div.innerHTML = `<h4>${s.name}</h4><p>${s.city} • ${s.desc}</p><div style="margin-top:8px"><button data-id="${s.id}" class="add-spot">Adicionar</button></div>`;
+    div.style.backgroundImage = `url("${s.image}")`;
+    div.innerHTML = `<p class="eyebrow">${s.city}</p><h4>${s.name}</h4><p>${s.desc}</p><button data-id="${s.id}" class="add-spot">+ Adicionar ao roteiro</button>`;
     spotsList.appendChild(div);
   });
 }
@@ -89,6 +105,9 @@ document.addEventListener('click',e=>{
 
 function renderItinerary(){
   itineraryList.innerHTML='';
+  routeCount.textContent = itinerary.length;
+  emptyRoute.hidden = itinerary.length > 0;
+  savedCount.textContent = `${itinerary.length} ${itinerary.length === 1 ? 'salvo' : 'salvos'}`;
   itinerary.forEach(i=>{ const li=document.createElement('li'); li.textContent = `${i.name} — ${i.city}`; itineraryList.appendChild(li); });
 }
 
