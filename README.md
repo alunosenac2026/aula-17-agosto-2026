@@ -41,6 +41,9 @@ Para recuperar uma versão específica, use a tag correspondente no GitHub.
 - Exibição de preço, avaliação, cidade e imagem de cada hospedagem.
 - Simulação de reserva por meio de formulário.
 - Consulta de atrações turísticas.
+- Busca de guias locais por cidade, especialidade e avaliação.
+- Exibição de avaliações, quantidade de comentários, idiomas e preço inicial dos guias.
+- Contato simulado com guias locais.
 - Adição de atrações ao roteiro pessoal.
 - Contagem de itens salvos no roteiro.
 - Persistência de reservas e roteiro no `localStorage` do navegador.
@@ -52,6 +55,7 @@ Para recuperar uma versão específica, use a tag correspondente no GitHub.
 - CSS3
 - JavaScript (JavaScript puro, sem framework)
 - JSON para os dados de hospedagem
+- JSON para os dados de guias locais
 - `localStorage` para persistência local
 - Google Fonts e imagens externas
 
@@ -87,7 +91,8 @@ HTTP equivalente.
 │   └── js/
 │       └── script.js  # Interações e persistência local
 ├── data/
-│   └── hotels.json     # Dados estáticos das hospedagens
+│   ├── hotels.json     # Dados estáticos das hospedagens
+│   └── guides.json     # Dados estáticos dos guias locais
 ├── docs/
 │   └── prompt.md       # Registro pedagógico do desenvolvimento
 └── README.md           # Documentação do projeto
@@ -108,6 +113,7 @@ site ou utilizar outro navegador remove o conteúdo armazenado.
 
 - Não há autenticação ou contas de usuário.
 - As reservas não são enviadas para um servidor.
+- O contato com guias é uma simulação e não envia mensagens reais.
 - Não existe verificação de disponibilidade dos hotéis.
 - Não há integração com pagamentos.
 - Os hotéis e as atrações são dados demonstrativos.
@@ -124,6 +130,7 @@ site ou utilizar outro navegador remove o conteúdo armazenado.
 - Validar datas, disponibilidade e quantidade de noites no servidor.
 - Adicionar testes automatizados para filtros, reservas e persistência.
 - Substituir imagens demonstrativas por um catálogo controlado pela aplicação.
+- Integrar um canal real e seguro para contato entre viajantes e guias.
 - Publicar a aplicação em uma plataforma de hospedagem web.
 
 ## Status
