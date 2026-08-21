@@ -113,6 +113,7 @@ site ou utilizar outro navegador remove o conteúdo armazenado.
 
 - Não há autenticação ou contas de usuário.
 - As reservas não são enviadas para um servidor.
+- O contato com guias é uma simulação e não envia mensagens reais.
 - Não existe verificação de disponibilidade dos hotéis.
 - Não há integração com pagamentos.
 - Os hotéis e as atrações são dados demonstrativos.
@@ -129,6 +130,7 @@ site ou utilizar outro navegador remove o conteúdo armazenado.
 - Validar datas, disponibilidade e quantidade de noites no servidor.
 - Adicionar testes automatizados para filtros, reservas e persistência.
 - Substituir imagens demonstrativas por um catálogo controlado pela aplicação.
+- Integrar um canal real e seguro para contato entre viajantes e guias.
 - Publicar a aplicação em uma plataforma de hospedagem web.
 
 ## Status

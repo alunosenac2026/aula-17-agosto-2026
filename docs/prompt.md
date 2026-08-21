@@ -190,3 +190,25 @@ A aplicação final possui:
 ## 11. Observação pedagógica
 
 O uso de inteligência artificial ocorreu de forma iterativa. O resultado não veio apenas de um prompt único: a aplicação foi construída, analisada, corrigida, comparada com versões anteriores, publicada e refinada a partir de novos pedidos. Esse histórico demonstra o processo de especificação, validação e evolução de um projeto web com apoio de IA.
+
+## 12. Funcionalidade de guias locais
+
+**Solicitação registrada:**
+
+> excelente, por pultimo, mas não menos importante, podemos fazer a implemnetação de alguma funcionalidade para este f=projeto? o que sugere, pensei de colocar um buscador de guias turísticos locais, com, avaliações o que acha? pode criar uma branch nova para feature-buscador-guia-turistico
+
+**Implementação:**
+
+- Foi criada a branch `feature/buscador-guia-turistico`.
+- Foi criada a fonte de dados `data/guides.json`.
+- Foi adicionada a seção de guias locais ao `index.html`.
+- Foram incluídos filtros por cidade, nome, especialidade, idioma e avaliação mínima.
+- Foram exibidos nota, quantidade de avaliações, idiomas e preço inicial.
+- O contato foi mantido como simulação, pois o projeto ainda não possui backend.
+
+**Refatoração posterior:**
+
+Após a implementação, o JavaScript foi reorganizado para reutilizar o carregamento
+de JSON, centralizar o acesso ao DOM e evitar listeners globais duplicados. Essa
+refatoração preservou o comportamento de hotéis, reservas, atrações, roteiro e
+guias, reduzindo repetição e facilitando futuras evoluções.
