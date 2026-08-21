@@ -10,8 +10,13 @@ const destinationSearch = document.getElementById('destination-search');
 const routeCount = document.getElementById('route-count');
 const emptyRoute = document.getElementById('empty-route');
 const savedCount = document.getElementById('saved-count');
+const guidesList = document.getElementById('guides-list');
+const guideSearch = document.getElementById('guide-search');
+const guideRating = document.getElementById('guide-rating');
+const guideResultCount = document.getElementById('guide-result-count');
 
 let hotels = [];
+let guides = [];
 let itinerary = JSON.parse(localStorage.getItem('itinerary')||'[]');
 let reservations = JSON.parse(localStorage.getItem('reservations')||'[]');
 
@@ -28,6 +33,10 @@ function renderHotels(list){
 
 function loadHotels(){
   fetch('data/hotels.json').then(r=>r.json()).then(data=>{hotels=data;renderHotels(data)}).catch(()=>{hotels=[]});
+}
+
+function loadGuides(){
+  fetch('data/guides.json').then(r=>r.json()).then(data=>{guides=data;renderGuides(data)}).catch(()=>{guides=[];renderGuides([])});
 }
 
 function filteredHotels(){
@@ -55,6 +64,10 @@ destinationForm.addEventListener('submit', e => {
 
 document.addEventListener('click',e=>{
   if(e.target.matches('.reserve-btn')) openReserve(e.target.dataset.id);
+  if(e.target.matches('.contact-guide')) {
+    const guide = guides.find(g=>g.id===Number(e.target.dataset.id));
+    if(guide) alert(`Contato simulado com ${guide.name}, guia em ${guide.city}.`);
+  }
 });
 
 // Modal and reservation handling
@@ -101,6 +114,33 @@ function renderSpots(){
   });
 }
 
+function filteredGuides(){
+  const query = guideSearch.value.trim().toLowerCase();
+  const minimumRating = Number(guideRating.value);
+  return guides.filter(g=>{
+    const matchesQuery = `${g.name} ${g.city} ${g.specialty} ${g.languages}`.toLowerCase().includes(query);
+    return matchesQuery && g.rating >= minimumRating;
+  });
+}
+
+function renderGuides(list){
+  guidesList.innerHTML = '';
+  guideResultCount.textContent = `${list.length} ${list.length === 1 ? 'guia encontrado' : 'guias encontrados'}`;
+  if(!list.length){
+    guidesList.innerHTML = '<p class="empty-route">Nenhum guia encontrado. Tente outra cidade ou especialidade.</p>';
+    return;
+  }
+  list.forEach(g=>{
+    const card = document.createElement('article');
+    card.className = 'guide-card';
+    card.innerHTML = `<p class="eyebrow">${g.city}</p><h4>${g.name}</h4><p>${g.specialty}</p><p class="guide-meta">★ ${g.rating} · ${g.reviews} avaliações</p><p>A partir de R$ ${g.price} · ${g.languages}</p><button class="contact-guide" data-id="${g.id}">Consultar guia</button>`;
+    guidesList.appendChild(card);
+  });
+}
+
+guideSearch.addEventListener('input',()=>renderGuides(filteredGuides()));
+guideRating.addEventListener('change',()=>renderGuides(filteredGuides()));
+
 document.addEventListener('click',e=>{
   if(e.target.matches('.add-spot')){
     const id = Number(e.target.dataset.id); const spot = spots.find(s=>s.id===id);
@@ -119,4 +159,4 @@ function renderItinerary(){
 document.getElementById('clear-itinerary').addEventListener('click',()=>{ itinerary=[]; localStorage.removeItem('itinerary'); renderItinerary(); });
 
 // Init
-loadHotels(); renderSpots(); renderItinerary(); renderReservations();
+loadHotels(); loadGuides(); renderSpots(); renderItinerary(); renderReservations();

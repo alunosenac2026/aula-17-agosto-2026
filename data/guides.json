@@ -1,0 +1,6 @@
+[
+  {"id":1,"name":"Marina Costa","city":"Paraty","specialty":"História e cultura","rating":4.9,"reviews":128,"price":180,"languages":"Português e inglês"},
+  {"id":2,"name":"Rafael Lima","city":"Fortaleza","specialty":"Praias e gastronomia","rating":4.8,"reviews":94,"price":220,"languages":"Português e espanhol"},
+  {"id":3,"name":"Bianca Alves","city":"São Paulo","specialty":"Arte urbana e museus","rating":4.7,"reviews":76,"price":200,"languages":"Português e inglês"},
+  {"id":4,"name":"João Mendes","city":"Rio de Janeiro","specialty":"Trilhas e natureza","rating":4.5,"reviews":61,"price":190,"languages":"Português"}
+]

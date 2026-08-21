@@ -173,6 +173,7 @@ A aplicação final possui:
 - persistência local no navegador;
 - publicação no GitHub;
 - hospedagem online no InfinityFree.
+- buscador de guias locais por cidade, especialidade e avaliação.
 
 ## 10. Arquivos do projeto
 
