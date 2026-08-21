@@ -19,7 +19,7 @@ alterar os arquivos localmente, siga as instruções da seção [Como executar](
 ## Registro do desenvolvimento com IA
 
 Para a atividade pedagógica, o processo de desenvolvimento foi registrado em
-[CHAT-DO-DESENVOLVIMENTO.md](CHAT-DO-DESENVOLVIMENTO.md). O documento reúne os
+[docs/prompt.md](docs/prompt.md). O documento reúne os
 prompts principais, decisões técnicas, validações e etapas de publicação.
 
 ## Versões do projeto
@@ -57,7 +57,7 @@ Para recuperar uma versão específica, use a tag correspondente no GitHub.
 
 ## Pré-requisitos
 
-É necessário ter um navegador moderno e, para carregar o arquivo `hotels.json`,
+É necessário ter um navegador moderno e, para carregar o arquivo `data/hotels.json`,
 um servidor HTTP local. Não há necessidade de instalar dependências ou configurar
 um banco de dados.
 
@@ -80,12 +80,17 @@ HTTP equivalente.
 
 ```text
 .
-├── index.html    # Estrutura semântica da interface
-├── styles.css    # Estilos, identidade visual e responsividade
-├── script.js     # Interações, filtros e persistência local
-├── hotels.json   # Dados estáticos das hospedagens
-├── README.md     # Documentação do projeto
-└── CHAT-DO-DESENVOLVIMENTO.md # Registro pedagógico do desenvolvimento
+├── index.html        # Entrada pública da aplicação
+├── assets/
+│   ├── css/
+│   │   └── styles.css # Estilos e responsividade
+│   └── js/
+│       └── script.js  # Interações e persistência local
+├── data/
+│   └── hotels.json     # Dados estáticos das hospedagens
+├── docs/
+│   └── prompt.md       # Registro pedagógico do desenvolvimento
+└── README.md           # Documentação do projeto
 ```
 
 ## Persistência de dados
@@ -108,7 +113,7 @@ site ou utilizar outro navegador remove o conteúdo armazenado.
 - Os hotéis e as atrações são dados demonstrativos.
 - Imagens e fontes dependem de serviços externos e de conexão com a internet.
 - A aplicação deve ser executada por HTTP local; abrir o HTML diretamente pode
-	impedir o carregamento de `hotels.json` por restrições do navegador.
+	impedir o carregamento de `data/hotels.json` por restrições do navegador.
 
 ## Melhorias futuras
 

@@ -179,11 +179,11 @@ A aplicação final possui:
 ```text
 .
 ├── index.html
-├── styles.css
-├── script.js
-├── hotels.json
-├── README.md
-└── CHAT-DO-DESENVOLVIMENTO.md
+├── assets/css/styles.css
+├── assets/js/script.js
+├── data/hotels.json
+├── docs/prompt.md
+└── README.md
 ```
 
 ## 11. Observação pedagógica

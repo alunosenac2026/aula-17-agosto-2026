@@ -27,7 +27,7 @@ function renderHotels(list){
 }
 
 function loadHotels(){
-  fetch('hotels.json').then(r=>r.json()).then(data=>{hotels=data;renderHotels(data)}).catch(()=>{hotels=[]});
+  fetch('data/hotels.json').then(r=>r.json()).then(data=>{hotels=data;renderHotels(data)}).catch(()=>{hotels=[]});
 }
 
 function filteredHotels(){
