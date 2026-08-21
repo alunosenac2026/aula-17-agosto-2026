@@ -16,8 +16,8 @@ button, a { transition: transform .2s ease, background .2s ease, color .2s ease;
 a { color: inherit; text-decoration: none; }
 .site-header { min-height: 480px; padding: 24px max(24px, calc((100% - 1180px) / 2)); color: var(--white); background: linear-gradient(90deg, rgba(15, 57, 59, .94) 0%, rgba(15, 57, 59, .74) 48%, rgba(15, 57, 59, .18) 100%), url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=90") center/cover; }
 .topbar { display: flex; justify-content: space-between; align-items: center; max-width: 1180px; margin: auto; }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 700; letter-spacing: .02em; }
-.brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; font-size: 11px; letter-spacing: 0; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 700; letter-spacing: .02em; }
+.brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; font-size: 10px; letter-spacing: .04em; }
 .nav-actions { display: flex; align-items: center; gap: 24px; font-size: 14px; }
 .saved-count { color: #ffd8c8; }
 .hero-copy { max-width: 680px; margin: 94px auto 28px 0; }
@@ -25,7 +25,9 @@ a { color: inherit; text-decoration: none; }
 .site-header .eyebrow { color: #ffd1c1; }
 h1, h2, h3, h4, p { margin-top: 0; }
 h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; }
-h1 { max-width: 660px; margin-bottom: 18px; font-size: clamp(42px, 6vw, 76px); line-height: .98; letter-spacing: 0; }
+h1 { max-width: 660px; margin-bottom: 12px; font-size: clamp(52px, 8vw, 96px); line-height: .98; letter-spacing: 0; }
+.hero-slogan { margin-bottom: 16px; color: #ffd1c1; font-family: "Playfair Display", Georgia, serif; font-size: clamp(22px, 3vw, 32px); line-height: 1.15; }
+.hero-description { max-width: 500px; margin-bottom: 28px; color: #e7efea; font-size: 17px; line-height: 1.6; }
 .hero-copy > p:last-child { max-width: 500px; margin-bottom: 0; color: #e7efea; font-size: 17px; line-height: 1.6; }
 .destination-search { display: flex; align-items: center; max-width: 630px; padding: 7px 7px 7px 18px; background: var(--white); border-radius: 5px; box-shadow: 0 16px 35px rgba(10, 37, 36, .2); }
 .search-icon { color: var(--coral); font-size: 26px; line-height: 1; }
@@ -70,4 +72,4 @@ ul { padding: 0; list-style: none; }
 #reserve-form input { padding: 11px; border: 1px solid var(--line); border-radius: 3px; }
 .site-footer { padding: 22px; color: var(--muted); text-align: center; font-size: 12px; }
 @media (max-width: 880px) { .container { grid-template-columns: 1fr; } .hotels, .spots, .itinerary { grid-column: 1; } .itinerary { grid-row: auto; } }
-@media (max-width: 560px) { .site-header { min-height: 570px; padding: 18px; } .nav-actions a { display: none; } .hero-copy { margin-top: 92px; } h1 { font-size: 48px; } .destination-search { align-items: stretch; flex-wrap: wrap; padding: 8px; } .destination-search input { flex-basis: calc(100% - 35px); } .destination-search button { width: 100%; } .container { padding: 38px 18px 50px; } .hotel-controls { flex-direction: column; } h2 { font-size: 28px; } }
+@media (max-width: 560px) { .site-header { min-height: 570px; padding: 18px; } .nav-actions a { display: none; } .hero-copy { margin-top: 92px; } h1 { font-size: 56px; } .hero-slogan { font-size: 24px; } .destination-search { align-items: stretch; flex-wrap: wrap; padding: 8px; } .destination-search input { flex-basis: calc(100% - 35px); } .destination-search button { width: 100%; } .container { padding: 38px 18px 50px; } .hotel-controls { flex-direction: column; } h2 { font-size: 28px; } }

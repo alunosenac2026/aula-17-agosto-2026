@@ -1,7 +1,8 @@
-# Roteiro
+# My Travel
 
-Aplicação web para planejamento de viagens. O usuário pode pesquisar hospedagens,
-consultar atrações e montar um roteiro personalizado diretamente no navegador.
+Aplicação web para planejamento de viagens. O My Travel ajuda o usuário a
+pesquisar hospedagens, consultar atrações e montar um roteiro personalizado
+diretamente no navegador.
 
 > Projeto educacional desenvolvido como exemplo de aplicação front-end. As reservas
 > são simuladas e não representam uma operação comercial real.
@@ -10,7 +11,7 @@ consultar atrações e montar um roteiro personalizado diretamente no navegador.
 
 Acesse a versão publicada da aplicação:
 
-**[Abrir Roteiro online](https://mytravel.freedev.app/)**
+**[Abrir My Travel online](https://mytravel.freedev.app/)**
 
 O endereço acima corresponde ao ambiente hospedado do projeto. Para testar ou
 alterar os arquivos localmente, siga as instruções da seção [Como executar](#como-executar).
@@ -20,6 +21,18 @@ alterar os arquivos localmente, siga as instruções da seção [Como executar](
 Para a atividade pedagógica, o processo de desenvolvimento foi registrado em
 [CHAT-DO-DESENVOLVIMENTO.md](CHAT-DO-DESENVOLVIMENTO.md). O documento reúne os
 prompts principais, decisões técnicas, validações e etapas de publicação.
+
+## Versões do projeto
+
+As versões estáveis são preservadas no Git por meio de tags:
+
+- `v1-inicial`: primeira versão funcional do site, registrada no commit de 17/08.
+- `v2-atual`: versão com melhorias visuais, reservas e roteiro integrado.
+- `v3-final`: versão definitiva com a marca My Travel, slogan e chamada para ação.
+
+A branch `main` representa a versão definitiva aprovada. Novos ajustes devem ser
+desenvolvidos em branches `feature/*` e integrados somente depois de revisados.
+Para recuperar uma versão específica, use a tag correspondente no GitHub.
 
 ## Funcionalidades
 
