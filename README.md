@@ -15,6 +15,12 @@ Acesse a versão publicada da aplicação:
 O endereço acima corresponde ao ambiente hospedado do projeto. Para testar ou
 alterar os arquivos localmente, siga as instruções da seção [Como executar](#como-executar).
 
+## Registro do desenvolvimento com IA
+
+Para a atividade pedagógica, o processo de desenvolvimento foi registrado em
+[CHAT-DO-DESENVOLVIMENTO.md](CHAT-DO-DESENVOLVIMENTO.md). O documento reúne os
+prompts principais, decisões técnicas, validações e etapas de publicação.
+
 ## Funcionalidades
 
 - Pesquisa de hotéis por nome ou cidade.
@@ -65,7 +71,8 @@ HTTP equivalente.
 ├── styles.css    # Estilos, identidade visual e responsividade
 ├── script.js     # Interações, filtros e persistência local
 ├── hotels.json   # Dados estáticos das hospedagens
-└── README.md     # Documentação do projeto
+├── README.md     # Documentação do projeto
+└── CHAT-DO-DESENVOLVIMENTO.md # Registro pedagógico do desenvolvimento
 ```
 
 ## Persistência de dados
